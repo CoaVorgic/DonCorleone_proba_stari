@@ -39,63 +39,66 @@
 </head>
 <body>
 
-<form action="dostavadb.php" method="post" enctype="multipart/form-data" onSubmit="return validateForm();">
+<form action="dostavadb.php" method="post" enctype="multipart/form-data">
     <div style="width: 400px;">
     </div>
     <div style="padding-bottom: 18px;font-size : 24px;" >Dostava</div>
     <div style="padding-bottom: 18px;font-size : 18px;">Ovde mozete online poruciti iz naseg restorana! Sve dostave preko 500 dinara su besplatne!</div>
     <div style="padding-bottom: 18px;">Jelo<span style="color: #EE0000;"> *</span><br/>
-        <input type="checkbox" name="jelo" id="cezar">
+        <input type="checkbox" name="jelo" class="jelo">
         <label for="hrana">Cezar salata - 450 din</label><br>
-        <input type="checkbox" name="jelo" id="biftek">
+        <input type="checkbox" name="jelo" class="jelo">
         <label for="hrana">Biftek - 700 din</label><br>
-        <input type="checkbox" name="jelo" id="lignje">
+        <input type="checkbox" name="jelo" class="jelo">
         <label for="hrana">Lignje na raznju - 1200 din</label><br>
         <span>Kolicina<span style="color: #EE0000;"> *</span></span>
         <select id="option_1" name="kolicina" style="width : 250px;" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
         </select>
     </div>
     <div style="padding-bottom: 18px;">Pice<span style="color: #EE0000;"> *</span><br/>
-        <input type="checkbox" id="kola" name="pice">
+        <input type="checkbox" class="pice" name="pice">
         <label for="pice">Koka kola 2l - 110 din</label><br>
-        <input type="checkbox" id="vino" name="pice">
+        <input type="checkbox" class="pice" name="pice">
         <label for="pice">Vino Zdrepceva krv - 250 din</label><br>
-        <input type="checkbox" id="knjaz" name="pice">
+        <input type="checkbox" class="pice" name="pice">
         <label for="pice">Knjaz Milos 1,5l - 70 din</label><br>
         <span>Kolicina<span style="color: #EE0000;"> *</span></span>
         <select id="option_2" name="kolicina1" style="width : 250px;" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
         </select>
     </div>
     <div style="padding-bottom: 18px;">Phone<span style="color: #EE0000"> *</span><br/>
-        <input type="text" id="data_6" name="telefon" style="width : 250px;" class="form-control"/>
+        <input type="text" id="phone" name="telefon" style="width : 250px;" class="form-control"/>
     </div>
     <div style="padding-bottom: 18px;">Adresa<span style="color: #EE0000"> *</span><br/>
-        <input type="text" id="data_8" name="adresa" style="width : 250px;" class="form-control"/>
+        <input type="text" id="adress" name="adresa" style="width : 250px;" class="form-control"/>
     </div>
     <div style="padding-bottom: 18px;">Nacin placanja:<span style="color: #EE0000"> *</span><br/>
-        <select id="data_10" name="nacinp" style="width : 250px;" class="form-control">
-            <option>Gotovina</option>
-            <option>Kartica</option>
+        <select id="method" name="nacinp" style="width : 250px;" class="form-control">
+            <option></option>
+            <option value="gotovina">Gotovina</option>
+            <option value="kartica">Kartica</option>
         </select>
     </div>
     <div style="padding-bottom: 18px;">Komentar / Dodatni zahtev<br/>
@@ -107,27 +110,27 @@
 
 <script type="text/javascript">
     function validateForm() {
-        if (isEmpty(document.getElementById('cezar').value.trim())) {
-            alert('One checkbox is required!');
+        if (!document.getElementsByClassName('jelo').checked) {
+            alert('Izabrati jedno jelo!');
             return false;
         }
-        if (isEmpty(document.getElementById('kola').value.trim())) {
-            alert('One checkbox is required!');
+        if (!document.getElementsByClassName('pice').checked) {
+            alert('Izabrati jedno pice!');
             return false;
         }
         /* if (!validateEmail(document.getElementById('data_5').value.trim())) {
             alert('Email must be a valid email address!');
             return false;
         } */
-        if (isEmpty(document.getElementById('data_8').value.trim())) {
+        if (isEmpty(document.getElementById('adress').value.trim())) {
             alert('Adress is required!');
             return false;
         }
-        if (isEmpty(document.getElementById('data_10').value.trim())) {
+        if (isEmpty(document.getElementById('method').value.trim())) {
             alert('Method of payment is required!');
             return false;
         }
-        if (isEmpty(document.getElementById('data_6').value.trim())) {
+        if (isEmpty(document.getElementById('phone').value.trim())) {
             alert('Phone is required!');
             return false;
         }
