@@ -259,7 +259,7 @@ include "db_config.php";
                   }
               }
               ?>
-<!--
+
                <div class="col-md-4 col-sm-6">
                     <div class="menu-thumb">
                               <img src="images/menu-image5.jpg" class="img-responsive" alt="">
@@ -302,7 +302,7 @@ include "db_config.php";
                               <div class="menu-info">
                                    <div class="menu-item">
                                         <h3>Pasulj</h3>
-                                        <p>Bobičasto povće/Hleb</p>
+                                        <p>Bobičasto povrće/Hleb</p>
                                    </div>
                                    <div class="menu-price">
                                         <span>350 rsd.</span>
@@ -311,7 +311,7 @@ include "db_config.php";
                          </a>
                     </div>
                </div>
-
+<!--
                <div class="col-md-4 col-sm-6">
                     <div class="menu-thumb">
                               <img src="images/pica.jpg" class="img-responsive" alt="">
