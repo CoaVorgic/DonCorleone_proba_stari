@@ -184,7 +184,7 @@ include "db_config.php";
 
               <div class="col-md-4 col-sm-4" style="float: left">
                   <div class="team-thumb wow fadeInUp"  data-wow-delay="0.2s">
-                      <img src="images/kuvar.jpg" class="img-responsive" alt="">
+                      <img src="images/kuvar.png" class="img-responsive" alt="">
 
                   </div>
               </div>
