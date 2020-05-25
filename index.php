@@ -194,7 +194,7 @@ include "db_config.php";
                       <img src="images/aleksandar.jpg" class="img-responsive" alt="">
                       <div class="team-hover">
                           <div class="team-item">
-                              <h4>Rodjen sam 30.05.1998 u SUBOTICI. Isao sam u osnovnu skolu Jovan Jovanovic Zmaj.
+                              <h4>Rodjen sam 30.05.1998 u Subotici. Isao sam u osnovnu skolu Jovan Jovanovic Zmaj.
                                   Zavrsio sam srednju tehničku školu "Ivan Saric", smer Saobracajno-Transportni tehnicar.
                                   Bavim se sportom, treniram kikboks i fudbal. Imam psa po imenu Dzoni i mnogo ga obozavam!
                               U slobodno vreme volim da se druzim, volim da slusam muziku.</h4>
