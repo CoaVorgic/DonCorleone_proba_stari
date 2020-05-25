@@ -49,27 +49,27 @@ include "db_config.php";
 <form action="rezervacijadb.php" method="post" enctype="multipart/form-data" onSubmit="return validateForm();">
     <div style="width: 400px;">
     </div>
-    <div style="padding-bottom: 18px;font-size : 24px;" >Table Reservation</div>
-    <div style="padding-bottom: 18px;font-size : 18px;">We would be glad to reserve a table for you at our restaurant!</div>
-    <div style="padding-bottom: 18px;">Name<span style="color: lime;"> *</span><br/>
+    <div style="padding-bottom: 18px;font-size : 24px;" >Rezervacija</div>
+    <div style="padding-bottom: 18px;font-size : 18px;">Bilo bi nam drago da rezervisete mesto kod nas!</div>
+    <div style="padding-bottom: 18px;">Ime<span style="color: lime;"> *</span><br/>
         <input type="text" id="data_3" name="name" style="width : 400px;" class="form-control"/>
     </div>
-    <div style="padding-bottom: 18px;">Phone<span style="color: lime;"> *</span><br/>
+    <div style="padding-bottom: 18px;">Telefon<span style="color: lime;"> *</span><br/>
         <input type="text" id="data_4" name="phone" style="width : 400px;" class="form-control"/>
     </div>
     <div style="padding-bottom: 18px;">Email<br/>
         <input type="text" id="data_5" name="email" style="width : 400px;" class="form-control"/>
     </div>
-    <div style="padding-bottom: 18px;">Date<span style="color: lime;"> *</span><br/>
+    <div style="padding-bottom: 18px;">Datum<span style="color: lime;"> *</span><br/>
         <input type="text" id="data_6" name="date" style="width : 250px;" class="form-control"/>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
-    <div style="padding-bottom: 18px;">Time<span style="color: lime;"> *</span><br/>
+    <div style="padding-bottom: 18px;">Vreme<span style="color: lime;"> *</span><br/>
         <input type="time" id="data_7" name="time" min="08:00" max="23:00" style="width : 250px;" class="form-control" required/>
     </div>
-    <div style="padding-bottom: 18px;">Number of Attendees<span style="color: lime;"> *</span><br/>
+    <div style="padding-bottom: 18px;">Broj gostiju<span style="color: lime;"> *</span><br/>
         <select id="data_8" name="brojg" style="width : 250px;" class="form-control">
             <option>1</option>
             <option>2</option>
@@ -84,10 +84,10 @@ include "db_config.php";
             <option>10+ (Specify in Comments)</option>
         </select>
     </div>
-    <div style="padding-bottom: 18px;">Comments / Additional Requests<br/>
+    <div style="padding-bottom: 18px;">Komentar / Dodatni zahtevi<br/>
         <textarea id="data_9" name="comment" style="width : 400px;" rows="6" class="form-control"></textarea>
     </div>
-    <div style="padding-bottom: 18px;"><input name="submit" value="Submit" type="submit"/></div>
+    <div style="padding-bottom: 18px;"><input name="submit" value="Posalji" type="submit"/></div>
 </form>
 
 
