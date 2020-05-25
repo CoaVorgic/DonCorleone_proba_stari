@@ -58,7 +58,7 @@ include "db_config.php";
         <div class="col-sm-8" style="border: 1px solid #222;">
             <!--            ZAGLAVLJE HEADER-->
             <div class="col-sm-12" style="background-color: orange; padding: 10px;">
-                <h2 style="display: inline;">SAN SNOVA</h2>
+                <h2 style="display: inline;">Don Corleone</h2>
                 <ul style="display: inline-block;">
                     <li><a href="adminpage.php">Home</a></li>
                     <li><a href="Proizvodi.php">Proizvodi</a></li>
