@@ -79,8 +79,8 @@ include "db_config.php";
 
 
 <!-- HOME -->
-<sect
-              ion id="home" class="slider" data-stellar-background-ratio="0.5">
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+
               <div class="row">
 
                   <div class="owl-carousel owl-theme">
@@ -159,7 +159,7 @@ include "db_config.php";
 
                <div class="col-md-12 col-sm-12">
                     <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                         <h2>Upoznaj glavnog kuvara</h2>
+                         <h2>Upoznajte glavnog kuvara i menadzera restorana</h2>
                     </div>
                </div>
 
@@ -168,7 +168,9 @@ include "db_config.php";
                          <img src="images/petar.jpg" class="img-responsive" alt="">
                          <div class="team-hover">
                               <div class="team-item">
-                                   <h4>10 godina iskustva</h4>
+                                   <h4>Rodjen sam 09.05.1998 u Subotici. U osnovnoj školi sam se preselio za Novi Kneževac gde sam i odrastao.
+                                       Završio sam srednju tehničku školu u Kikindi,Elektrotehničar Telekomunikacija. Mnogo volim životinje! Imam mačka po imenu Mili koji bi sve na svetu dao za malo maženja.
+                                       Mnogo volim da slušam muziku,to me opušta. Slušam često našu domaću muziku,ali i stranu elektronsku.</h4>
                               </div>
                          </div>
                     </div>
@@ -177,24 +179,30 @@ include "db_config.php";
                          <h3>Jager Petar</h3>
                          <p>Šef kuhinje</p>
                     </div>
-               </div>
-               <div class="col-md-4 col-sm-4">
-                    <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                         <h2 id="biografija">Biografija</h2>
-                         <p>Rodjen sam 09.05.1998 u Subotici. U osnovnoj školi sam se preselio za Novi Kneževac gde sam i odrastao.
-                         Završio sam srednju tehničku školu u Kikindi,Elektrotehničar Telekomunikacija. Mnogo volim životinje! Imam mačka po imenu Mili koji bi sve na svetu dao za malo maženja.
-                             Mnogo volim da slušam muziku,to me opušta. Slušam često našu domaću muziku,ali i stranu elektronsku.
-                         </p>
-                         <div class="team-hover">
-                              <div class="team-item">
-
-
-                              </div>
-                         </div>
-                    </div>
-
 
                </div>
+
+              <div>
+                  <!-- dodati logo -->
+              </div>
+
+              <div class="col-md-4 col-sm-4" style="float: right">
+                  <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                      <img src="images/aleksandar.jpg" class="img-responsive" alt="">
+                      <div class="team-hover">
+                          <div class="team-item">
+                              <h4>10 godina iskustva</h4>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="team-info">
+                      <h3>Aleksandar Vorgic</h3>
+                      <p>Menadzer</p>
+                  </div>
+
+              </div>
+
 
 
 
