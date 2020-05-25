@@ -16,14 +16,14 @@
     <style>
 
         html {
-            background: rgb(255,196,0);
-            background: linear-gradient(180deg, rgba(255,196,0,1) 69%, rgba(221,38,38,1) 100%);
+            background: rgb(255,188,0);
+            background: linear-gradient(180deg, rgba(255,188,0,1) 50%, rgba(255,59,59,1) 100%);
         }
         body {
             margin: 0;
             padding: 50px;
-            background: rgb(255,196,0);
-            background: linear-gradient(180deg, rgba(255,196,0,1) 69%, rgba(221,38,38,1) 100%);
+            background: rgb(255,188,0);
+            background: linear-gradient(180deg, rgba(255,188,0,1) 50%, rgba(255,59,59,1) 100%);
 
             /* background: rgb(63,94,251);
              background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(229,53,247,1) 100%); */
