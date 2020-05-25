@@ -2,9 +2,9 @@
 session_start();
 include "db_config.php";
 
-/*provera stringova */
+/*provera stringova
 var_dump($_POST);
-die();
+die(); */
 
 $jelo = $kolicina = $pice = $kolicina1 = $telefon = $adresa = $nacinp = $comment = "";
 if(isset($_POST['jelo'])) {
