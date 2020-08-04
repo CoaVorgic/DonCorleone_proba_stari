@@ -10,13 +10,14 @@ include "db_config.php";
 <head>
     <meta charset="UTF-8">
     <title>Admin page</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
+
+
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
@@ -43,7 +44,7 @@ include "db_config.php";
 
 
 <div class="container-fluid">
-    <!--  Ovo je za prvu linijju na sajtu  -->
+    <!--  Ovo je za prvu liniju na sajtu  -->
     <div class="row">
         <div class="col-sm-12 text-center">
             <?php
@@ -51,13 +52,10 @@ include "db_config.php";
             echo "Dobrodosli ".$_SESSION['name']."e , danas je ".$date;
             ?>
         </div>
-        <div class="col-sm-2">
-            <!--        prazan prostor    -->
-        </div>
         <!--    BODY  -->
-        <div class="col-sm-8" style="border: 1px solid #222;">
-            <!--            ZAGLAVLJE HEADER-->
-            <div class="col-sm-12" style="background-color: orange; padding: 10px;">
+        <div class="col-sm-12" style="border: 1px solid #222;">
+            <!-- ZAGLAVLJE HEADER -->
+            <div class="col-sm-12 text-center" style="background-color: orange; padding: 10px; margin: 0 auto;">
                 <h2 style="display: inline;">Don Corleone</h2>
                 <ul style="display: inline-block;">
                     <li><a href="adminpage.php">Home</a></li>

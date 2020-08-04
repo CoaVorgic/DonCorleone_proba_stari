@@ -1,51 +1,52 @@
 <?php
 session_start();
-include "db_config.php";
+require_once "db_config.php";
 
-$nazhrane = $sastav = $cena = "";
+$errors = [];
+$food = $description = $price = "";
 
-if(isset($_POST['nazhrane']))
+if(isset($_POST['food']))
 {
-    $nazhrane = mysqli_real_escape_string($connection, $_POST['nazhrane']);
+    $food = mysqli_real_escape_string($connection, $_POST['food']);
 }
 
-if(isset($_POST['sastav']))
+if(isset($_POST['description']))
 {
-    $sastav = mysqli_real_escape_string($connection, $_POST['sastav']);
+    $description = mysqli_real_escape_string($connection, $_POST['description']);
 }
 
-if(isset($_POST['cena']))
+if(isset($_POST['price']))
 {
-    $cena = mysqli_real_escape_string($connection, $_POST['cena']);
+    $price = mysqli_real_escape_string($connection, $_POST['price']);
 }
 
 //---------------------------- POSTAVLJANJE SLIKE - PROVERA SLIKE -------------------------------------------//
 $image = "";
 // Get image name
-$image = $_FILES['image']['name'];
+if(isset($_FILES['image'])){
+    $image = $_FILES['image']['tmp_name'];
+}
 
 // image file directory
 $target = "images/".basename($image);
 //------------------------------------------------------------------------------------------------------------//
 
 
-if(!empty($nazhrane) AND !empty($sastav) AND is_numeric($cena))
-{
-    $insert = "INSERT INTO menu(name_f, about_f, price_f, picture_f) VALUES ('$nazhrane', '$sastav', '$cena', '$image');";
+if($food == "" || $description == "" || $price == "" || $image == "") {
+    echo '<script language="javascript"> alert("Unesite sve podatke!!"); location.href="addprod.php" </script>';
+}
+
+else {
+    $insert = "INSERT INTO menu VALUES ('', '$food', '$description', '$price', '$image');";
     $res = mysqli_query($connection, $insert) or die(mysqli_error($connection));
     move_uploaded_file($_FILES['image']['tmp_name'], $target);
 
     if($res)
     {
-        header("Location: addprod.php");
+        echo '<script language="javascript"> alert("Uspesno ste uneli proizvod"); location.href="addprod.php" </script>';
     }
-    else
-    {
-        echo "Greska";
+    else{
+        echo "ERROR: Could not able to execute $insert. " . mysqli_error($connection);
     }
-}
-else
-{
-    //ako je prazno, podesiti kasnije
-}
+}   
 

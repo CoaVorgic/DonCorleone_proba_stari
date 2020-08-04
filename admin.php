@@ -1,6 +1,4 @@
-<?php
-session_start();
-include "db_config.php";
+<?php session_start(); include "db_config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,42 +13,69 @@ include "db_config.php";
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/main.css">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
 
 </head>
 <body>
-<?php
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.php">Početna</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="proizvodi_ispravljeno.php">Proizvodi</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="addprod.php">Dodaj novi proizvod</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="adminpage.php">Admin stranica</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="rezervacija.php">Rezervacija</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="dostava.php">Dostava</a>
+        </li>
+    </ul>
+  </div>
+</nav>
 
 
-if(isset($_SESSION['logged']))
-{
-    header("Location: adminpage.php");
-}
-
-?>
-
-<div class="container">
+<div class="container admin">
     <div class="row">
-        <div class="col-sm-2">
-            <!-- Prazan prostor -->
-        </div>
-        <div class="col-sm-8 text-center" style="border-radius: 5px; background-color: royalblue; margin: 10px; padding: 10px;">
-            <h1 style="font-family: 'Odibee Sans', cursive;">Login</h1>
+        <div class="col-sm-12">
+            <h1>Login</h1>
             <hr>
-            <form action="loginuser.php" method="post">
+            <form action="loginuser.php" method="post" class="admin-form">
                 <label for="username">Username:</label>
                 <input type="text" name="username" placeholder="Enter your username"><br>
                 <label for="password">Password:</label>
                 <input type="password" name="password" placeholder="Enter your password"><br><br>
-                <input type="submit" value="Login" name="submit">
+                <button type="submit" class="admin-login-btn" name="submit">Login <i class="fas fa-long-arrow-alt-right"></i></button>
             </form>
 
         </div>
-        <div class="col-sm-2">
-            <!-- Prazan prostor -->
-        </div>
     </div>
 </div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
 </body>
 </html>

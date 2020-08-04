@@ -404,14 +404,23 @@ http://www.templatemo.com/tm-515-eatery
 
   .slider .item-first {
     background-image: url(../images/slider-image1.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
   }
 
   .slider .item-second {
     background-image: url(../images/slider-image2.jpg);
+    background-size: cover;
+    background-position: bottom center;
+    height: 100vh;
   }
 
   .slider .item-third {
     background-image: url(../images/slider-image3.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
   }
 
   .slider .item-second .section-btn {
@@ -492,7 +501,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .team-thumb:hover .team-hover {
-    opacity: 0.95;
+    opacity: 0.6;
     transition-delay: 0.3s;
     transform: translateY(0);
   }
@@ -527,6 +536,8 @@ http://www.templatemo.com/tm-515-eatery
 
   .team-item h4 {
     color: #ffffff;
+    font-size: 16px;
+    text-align: center;
   }
 
   .team-info p {
@@ -537,7 +548,6 @@ http://www.templatemo.com/tm-515-eatery
     text-transform: uppercase;
     margin-top: 5px;
   }
-
 
 
   /*---------------------------------------
@@ -642,6 +652,7 @@ http://www.templatemo.com/tm-515-eatery
   -----------------------------------------*/
 
   #testimonial {
+
     background: url('../images/testimonial-bg.jpg') center center no-repeat;
     background-size: cover;
   }

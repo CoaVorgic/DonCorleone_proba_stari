@@ -1,14 +1,19 @@
 <?php
 session_start();
-include "db_config.php";
 
-/*provera stringova
-var_dump($_POST);
-die(); */
+// ucitavanje baze
+require "db_config.php";
 
-$name = $phone = $email = $date = $time = $brojg = $comment = "";
-if(isset($_POST['name'])) {
-    $name = mysqli_real_escape_string($connection, $_POST['name']);
+// definisanje promenljivih za poslate podatke
+$firstname = $lastname = $phone = $email = $date = $time = $numberOfGuests = $comment = "";
+
+// 'isset' proverava da li je vrednost zadata
+// 'mysqli_real_escape_string' sprecava unos nepozeljnih podataka
+if(isset($_POST['firstname'])) {
+    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+}
+if(isset($_POST['lastname'])) {
+    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
 }
 if(isset($_POST['phone'])) {
     $phone = mysqli_real_escape_string($connection, $_POST['phone']);
@@ -22,27 +27,28 @@ if(isset($_POST['date'])) {
 if(isset($_POST['time'])) {
     $time = mysqli_real_escape_string($connection, $_POST['time']);
 }
-if(isset($_POST['brojg'])) {
-    $brojg = mysqli_real_escape_string($connection, $_POST['brojg']);
+if(isset($_POST['numberOfGuests'])) {
+    $numberOfGuests = mysqli_real_escape_string($connection, $_POST['numberOfGuests']);
 }
 if(isset($_POST['comment'])) {
     $comment = mysqli_real_escape_string($connection, $_POST['comment']);
 }
 
-if(!empty($name) AND !empty($phone) AND !empty($email) AND !empty($date) AND !empty($time) AND !empty($brojg) AND !empty($comment))
-{
-    $insert = "INSERT INTO rezervacija(name_r, phone_r, email_r, date_r, time_r, brojg_r,comment_r) VALUES ('$name', '$phone', '$email', '$date', '$time', '$brojg', '$comment');";
-    /* var_dump($insert); */
+// uslov ukoliko su svi podaci poslati onda se izvrsava naredba
+if(!empty($firstname) AND !empty($lastname) AND !empty($phone) AND !empty($email) AND !empty($date) AND !empty($time) AND !empty($numberOfGuests) AND !empty($comment)) {
+    // SQL naredba za unos rezervacija
+    $insert = "INSERT INTO reservation VALUES ('', '$firstname', '$lastname', '$phone', '$email', '$date', '$time', '$numberOfGuests', '$comment');";
+    
+    // izvrsava se 'insert' naredba u 'connection' bazi
     $res = mysqli_query($connection, $insert) or die(mysqli_error($connection));
 
-
-    if($res)
-    {
-        header("Location: rezervacija.php");
-        echo "Uspesno poslato!";
+    // ukoliko se 'res' uspesno izvrsi ispisace da su uspesno uneti podaci i preusmerice na drugu stranicu
+    if($res) {
+        echo '<script language="javascript">alert("Uspesno ste uneli u jelovnik"); location.href="rezervacija.php" </script>';
     }
-    else
-    {
-        echo "Greska";
+
+    // ukoliko se 'res' ne izvrsi uspesno ispisace koja je bila greska
+    else {
+        echo "ERROR: Could not able to execute $insert. " . mysqli_error($connection);
     }
 }

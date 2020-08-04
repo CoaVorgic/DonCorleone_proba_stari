@@ -1,51 +1,59 @@
 <?php
 session_start();
-include "db_config.php";
+require_once "db_config.php";
 
-/*provera stringova
-var_dump($_POST);
-die(); */
-
-$jelo = $kolicina = $pice = $kolicina1 = $telefon = $adresa = $nacinp = $comment = "";
-if(isset($_POST['jelo'])) {
-    $jelo = mysqli_real_escape_string($connection, $_POST['jelo']);
+$food = $amount = $firstname = $lastname = $phone = $address = $payment = $comment = "";
+if(isset($_POST['food'])) {
+    $food = mysqli_real_escape_string($connection, $_POST['food']);
+    $sql_id = "SELECT ID FROM menu WHERE name='$food'";
+    $food_result = mysqli_query($connection, $sql_id);
+    $row_id = mysqli_fetch_assoc($food_result);
+    $id = $row_id["ID"];
 }
-if(isset($_POST['kolicina'])) {
-    $kolicina = mysqli_real_escape_string($connection, $_POST['kolicina']);
+if(isset($_POST['amount'])) {
+    $amount = mysqli_real_escape_string($connection, $_POST['amount']);
 }
-if(isset($_POST['pice'])) {
-    $pice = mysqli_real_escape_string($connection, $_POST['pice']);
+if(isset($_POST['firstname'])) {
+    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
 }
-if(isset($_POST['kolicina1'])) {
-    $kolicina1 = mysqli_real_escape_string($connection, $_POST['kolicina1']);
+if(isset($_POST['lastname'])) {
+    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
 }
-if(isset($_POST['telefon'])) {
-    $telefon = mysqli_real_escape_string($connection, $_POST['telefon']);
+if(isset($_POST['phone'])) {
+    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
 }
-if(isset($_POST['adresa'])) {
-    $adresa = mysqli_real_escape_string($connection, $_POST['adresa']);
+if(isset($_POST['address'])) {
+    $address = mysqli_real_escape_string($connection, $_POST['address']);
 }
-if(isset($_POST['nacinp'])) {
-    $nacinp = mysqli_real_escape_string($connection, $_POST['nacinp']);
+if(isset($_POST['payment'])) {
+    $payment = mysqli_real_escape_string($connection, $_POST['payment']);
 }
 if(isset($_POST['comment'])) {
     $comment = mysqli_real_escape_string($connection, $_POST['comment']);
 }
 
-if(!empty($jelo) AND !empty($kolicina) AND !empty($pice) AND !empty($kolicina1) AND !empty($telefon) AND !empty($adresa) AND !empty($nacinp) AND !empty($comment))
-{
-    $insert = "INSERT INTO dostava(jelo_d, kolicina_d, pice_d, kolicina1_d, telefon_d, adresa_d, nacin_placanja_d, comment_d) VALUES ('$jelo', '$kolicina', '$pice', '$kolicina1', '$telefon', '$adresa', '$nacinp', '$comment');";
-    /* var_dump($insert); proveravamo da li upis u bazu radi */
-    $res = mysqli_query($connection, $insert) or die(mysqli_error($connection));
+/*
+echo "$id<br>";
+echo "$amount<br>";
+echo "$phone<br>";
+echo "$address<br>";
+echo "$payment<br>";
+echo "$comment<br>";
+*/
 
+if(!empty($food) AND !empty($amount) AND !empty($phone) AND !empty($address) AND !empty($payment)) {
+    $sql = "INSERT INTO delivery VALUES ('', '$id', '$amount', '$firstname', '$lastname', '$phone', '$address', '$payment', '$comment');";
 
-    if($res)
-    {
-        header("Location: rezervacija.php");
-        echo "Uspesno poslato!";
+    if(mysqli_query($connection, $sql)){  
+        echo '<script language="javascript"> alert("Uspesno ste izvrsili narudzbu"); location.href="dostava.php" </script>';
     }
-    else
-    {
-        echo "Greska";
+    else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
     }
 }
+else {
+    echo '<script language="javascript"> alert("GRESKA!! Morate popuniti sva polja sem komentara!"); location.href="dostava.php" </script>';
+}
+
+
+
