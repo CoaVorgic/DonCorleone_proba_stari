@@ -34,19 +34,19 @@
             <a class="nav-link" href="index.php">Početna</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="proizvodi_ispravljeno.php">Proizvodi</a>
+            <a class="nav-link" href="#" style="color: white;">Proizvodi</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="addprod.php">Dodaj novi proizvod</a>
+            <a class="nav-link" href="#" style="color: white;">Dodaj novi proizvod</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="adminpage.php">Admin stranica</a>
+            <a class="nav-link" href="#" style="color: white;">Admin stranica</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="rezervacija.php">Rezervacija</a>
+            <a class="nav-link" href="#" style="color: white;">Rezervacija</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="dostava.php">Dostava</a>
+            <a class="nav-link" href="#" style="color: white;">Dostava</a>
         </li>
     </ul>
   </div>
