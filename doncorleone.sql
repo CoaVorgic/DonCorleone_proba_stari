@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 14, 2020 at 06:50 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Host: 127.0.0.1
+-- Generation Time: Aug 04, 2020 at 09:20 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,54 +18,62 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sansnova`
+-- Database: `doncorleone`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admins`;
-CREATE TABLE IF NOT EXISTS `admins` (
-  `id_a` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `admin` (
+  `ID` int(11) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
   `birthday` date NOT NULL,
-  PRIMARY KEY (`id_a`,`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `password` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admins`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `admins` (`id_a`, `username`, `password`, `name`, `lastname`, `address`, `birthday`) VALUES
-(1, 'petarj', 'petarj', 'Petar', 'Jager', 'Gundiliceva 22', '1998-05-09'),
-(2, 'borzeg', 'borzeg', 'Dusan', 'Zegarac', 'Beogradski put bb', '1998-10-19');
+INSERT INTO `admin` (`ID`, `firstname`, `lastname`, `username`, `email`, `address`, `birthday`, `password`, `picture`) VALUES
+(1, 'Aleksandar', 'Vorgic', 'aleksandarvorgic', 'aleksandar.vorgic@gmail.com', 'Beogradski put bb', '1998-05-05', 'aleksandar', 'aleksandar.jpg'),
+(2, 'Petar', 'Jager', 'petarjager', 'petar.jager@gmail.com', 'Gundiliceva 22', '1998-05-09', 'petar', 'petar.jpg'),
+(3, 'Dusan', 'Zegarac', 'dusanzegarac', 'dusan.zegarac@gmail.com', 'Beogradski put bb', '1998-10-19', 'dusan', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dostava`
+-- Table structure for table `delivery`
 --
 
-DROP TABLE IF EXISTS `dostava`;
-CREATE TABLE IF NOT EXISTS `dostava` (
-  `id_d` int(11) NOT NULL AUTO_INCREMENT,
-  `jelo_d` varchar(255) NOT NULL,
-  `kolicina_d` int(15) NOT NULL,
-  `pice_d` varchar(255) NOT NULL,
-  `kolicina1_d` int(15) NOT NULL,
-  `telefon_d` int(30) NOT NULL,
-  `adresa_d` varchar(255) NOT NULL,
-  `nacin_placanja_d` enum('gotovina','kartica','') NOT NULL,
-  `comment_d` varchar(300) NOT NULL,
-  PRIMARY KEY (`id_d`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `delivery` (
+  `ID` int(11) NOT NULL,
+  `food_ID` int(11) NOT NULL,
+  `food_amount` int(11) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `payment` enum('cash','card') NOT NULL,
+  `comment` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `delivery`
+--
+
+INSERT INTO `delivery` (`ID`, `food_ID`, `food_amount`, `firstname`, `lastname`, `phone`, `address`, `payment`, `comment`) VALUES
+(3, 2, 2, 'Adam', 'Horvat', '012/345-67-89', 'Adresa bb', 'card', 'Pozurite'),
+(4, 5, 3, 'Adam', 'Horvat', '012/345-67-89', 'Adresa bb', 'cash', 'Test'),
+(6, 3, 3, 'Adam', 'Horvat', '01234567/9', 'adresa bb', 'cash', 'komentar');
 
 -- --------------------------------------------------------
 
@@ -74,51 +81,119 @@ CREATE TABLE IF NOT EXISTS `dostava` (
 -- Table structure for table `menu`
 --
 
-DROP TABLE IF EXISTS `menu`;
-CREATE TABLE IF NOT EXISTS `menu` (
-  `id_f` int(11) NOT NULL AUTO_INCREMENT,
-  `name_f` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `about_f` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `price_f` int(6) NOT NULL,
-  `picture_f` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_f`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `menu` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id_f`, `name_f`, `about_f`, `price_f`, `picture_f`) VALUES
-(7, 'Biftek', 'Mesoo', 1000, 'biftek-agropapuk-Å¡id-2.jpg'),
-(5, 'Hudgard', 'Dzeger', 443, 'Jellyfish.jpg'),
-(8, 'Povrce', 'Zdrava hrana', 300, 'povrce-921.jpg');
+INSERT INTO `menu` (`ID`, `name`, `description`, `price`, `picture`) VALUES
+(2, 'Mesano meso', 'Mesano meso sadrzi....', 930, 'mesano_meso.jpg'),
+(3, 'Biftek', 'Opis bifteka', 1200, 'biftek.jpg'),
+(4, 'Cevapcici sa lukom', 'Porcija cevapcica sa lukom se sastoji od 10 cevapa', 640, 'cevapi.jpg'),
+(5, 'Spagete Karbonate', 'spagete opis...', 550, 'spagete.jpg'),
+(6, 'Piletina sa susamom', 'Opis ovog jela...', 650, 'piletina.jpg'),
+(7, 'Pizza Margarita', 'Opis pice', 490, 'pizza.jpg'),
+(11, 'Pasulj', 'pasulj opis', 300, 'pasulj.jpg'),
+(13, 'Sarma', 'sarma opis', 300, 'pasulj.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rezervacija`
+-- Table structure for table `reservation`
 --
 
-DROP TABLE IF EXISTS `rezervacija`;
-CREATE TABLE IF NOT EXISTS `rezervacija` (
-  `id_r` int(11) NOT NULL AUTO_INCREMENT,
-  `name_r` varchar(20) NOT NULL,
-  `phone_r` int(15) NOT NULL,
-  `email_r` varchar(50) NOT NULL,
-  `date_r` varchar(30) NOT NULL,
-  `time_r` varchar(10) NOT NULL,
-  `brojg_r` varchar(50) NOT NULL,
-  `comment_r` varchar(500) NOT NULL,
-  PRIMARY KEY (`id_r`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE TABLE `reservation` (
+  `ID` int(11) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `dateOfReservation` date NOT NULL,
+  `timeOfReservation` time NOT NULL,
+  `numberOfGuests` int(11) NOT NULL,
+  `comment` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rezervacija`
+-- Dumping data for table `reservation`
 --
 
-INSERT INTO `rezervacija` (`id_r`, `name_r`, `phone_r`, `email_r`, `date_r`, `time_r`, `brojg_r`, `comment_r`) VALUES
-(1, 'Aleksandar', 642859525, 'axa.v98@hotmail.rs', 'Sat May 30 2020', '20:00', '6', 'Proba'),
-(2, 'Aleksandar Vorgic', 642859525, 'axa.v007@gmail.com', 'Sat May 30 2020', '09:00', '7', 'Proba1');
+INSERT INTO `reservation` (`ID`, `firstname`, `lastname`, `email`, `phone`, `dateOfReservation`, `timeOfReservation`, `numberOfGuests`, `comment`) VALUES
+(2, 'Adam', 'Horvat', '01234567/9', 'adam.horvat@gmail.com', '2020-07-26', '20:12:00', 5, 'komentar');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `delivery`
+--
+ALTER TABLE `delivery`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `FK_delivery_menu` (`food_ID`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `delivery`
+--
+ALTER TABLE `delivery`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `delivery`
+--
+ALTER TABLE `delivery`
+  ADD CONSTRAINT `FK_delivery_menu` FOREIGN KEY (`food_ID`) REFERENCES `menu` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
