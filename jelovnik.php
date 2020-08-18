@@ -33,7 +33,7 @@ $target = "images/".basename($image);
 
 
 if($food == "" || $description == "" || $price == "" || $image == "") {
-    echo '<script language="javascript"> alert("Unesite sve podatke!!"); location.href="addprod.php" </script>';
+    echo '<script language="javascript"> alert("Unesite sve podatke!"); location.href="addprod.php" </script>';
 }
 
 else {
